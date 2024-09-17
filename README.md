@@ -25,19 +25,17 @@ kubectl apply -f deployment.yml
 kubectl apply -f service.yml
 ```
 2. Check the pod is in running state with the command `kubectl get pods -n db-app` else wait until it's in running state.
-
-_note:- might take few minutes_
+> _note:- it might take few minutes._
 
 3. You can check you mongo is up and running with the command `minikube service db-service -n db-app`. This will launch mongodb and minkube will take care for tunneling.
-
-_everytime we run the application the port will be different for real world scenario we can use step 4 for this_
+> _note:- Everytime the application is run with above step will create different port. For real world scenario we can use step 4 for this._
 
 4. As the service is up and running inside the pod we need to access it through outside world, which can be done with the command `kubectl port-forward service/db-service 30005:27017 -n db-app`
 
-#### _Setting up Backend_
+#### Setting up Backend
 1. 
 
-#### _Setting up Frontend_
+#### Setting up Frontend
 
 
 ## References & Links
