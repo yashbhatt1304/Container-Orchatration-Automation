@@ -15,7 +15,8 @@
 
 ## Steps
 
-#### Setting up Database first
+#### **Setting up Database first**
+---
 1. Apply the kubernetes files placed inside [Database](./databaseMongoDB/) in the folowing sequence as mentioned.
 ```
 kubectl apply -f namespace.yml
@@ -32,10 +33,29 @@ kubectl apply -f service.yml
 
 4. As the service is up and running inside the pod we need to access it through outside world, which can be done with the command `kubectl port-forward service/db-service 30005:27017 -n db-app`
 
-#### Setting up Backend
-1. 
+#### **Setting up Backend**
+---
+1. Apply the kubernetes files placed inside [Backend](./backend/) in the folowing sequence as mentioned.
+```
+kubectl apply -f namespace.yml
+kubectl apply -f secret.yml
+kubectl apply -f deployment.yml
+kubectl apply -f service.yml
+```
+2. Check the pod is in running state with the command `kubectl get pods -n learner-report-backend` else wait until it's in running state.
+> _note:- it might take few minutes._
 
-#### Setting up Frontend
+#### **Setting up Frontend**
+---
+1. Apply the kubernetes files placed inside [Backend](./frontend/) in the folowing sequence as mentioned.
+```
+kubectl apply -f namespace.yml
+kubectl apply -f configMap.yml
+kubectl apply -f deployment.yml
+kubectl apply -f service.yml
+```
+2. Check the pod is in running state with the command `kubectl get pods -n learner-report-frontend` else wait until it's in running state.
+> _note:- it might take few minutes._
 
 
 ## References & Links
