@@ -24,7 +24,7 @@ spec:
               key: REACT_APP_BACKEND_URL
         resources:
           limits:
-            memory: "1024Mi"
-            cpu: "1000m"
+            memory: "2048Mi"
+            cpu: "2000m"
         ports:
         - containerPort: 3000
