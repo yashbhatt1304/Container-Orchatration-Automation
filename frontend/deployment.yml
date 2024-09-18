@@ -2,19 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
-  namespace: frontend
+  namespace: learner-report-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend-deployment
+      app: frontend
   template:
     metadata:
       labels:
-        app: frontend-deployment
+        app: frontend
     spec:
       containers:
-      - name: frontend-deployment
+      - name: frontend
         image: yashbbhatt/container_orch_frontend:latest
         env:
         - name: REACT_APP_BACKEND_URL
@@ -24,7 +24,7 @@ spec:
               key: REACT_APP_BACKEND_URL
         resources:
           limits:
-            memory: "128Mi"
-            cpu: "500m"
+            memory: "1024Mi"
+            cpu: "1000m"
         ports:
-        - containerPort: 3001
+        - containerPort: 3000
