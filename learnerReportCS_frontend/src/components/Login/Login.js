@@ -48,7 +48,7 @@ const Login = () => {
     setManageLogin((prev) => ({
       ...prev,
       type: event.target.value,
-      url: `http://localhost:3000/${event.target.value}/login`,
+      url: `http://localhost:3001/${event.target.value}/login`,
       
     }))
   };
