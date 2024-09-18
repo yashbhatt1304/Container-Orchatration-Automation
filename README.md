@@ -18,13 +18,13 @@
 #### **_Setting up Database first_**
 
 1. Apply the kubernetes files placed inside [Database](./databaseMongoDB/) in the folowing sequence as mentioned.
-> ```
+```
 kubectl apply -f namespace.yml
 kubectl apply -f pvc.yml
 kubectl apply -f pv.yml
 kubectl apply -f deployment.yml
 kubectl apply -f service.yml
-> ```
+```
 2. Check the pod is in running state with the command `kubectl get pods -n db-app` else wait until it's in running state.
 > _note:- it might take few minutes._
 
@@ -39,12 +39,12 @@ kubectl apply -f service.yml
 #### **Setting up Backend**
 
 1. Apply the kubernetes files placed inside [Backend](./backend/) in the folowing sequence as mentioned.
-> ```
+```
 kubectl apply -f namespace.yml
 kubectl apply -f secret.yml
 kubectl apply -f deployment.yml
 kubectl apply -f service.yml
-> ```
+```
 2. Check the pod is in running state with the command `kubectl get pods -n learner-report-backend` else wait until it's in running state.
 > _note:- it might take few minutes._
 
@@ -52,19 +52,19 @@ kubectl apply -f service.yml
 > _note:- Everytime the application is run with above step will create different port. For real world scenario we can use step 4 for this._
 
 4. As the service is up and running inside the pod we need to access it through outside world, which can be done with the command `kubectl port-forward service/backend-service 3001:3001 -n learner-report-backend`
+![Backend_Connection](./snapshots/BackendInBrowser.png)
 
 5. You can check making connection to the backend at 3001 port.
-![Backend_Connection](./snapshots/BackendInBrowser.png)
 
 #### **Setting up Frontend**
 
 1. Apply the kubernetes files placed inside [Frontend](./frontend/) in the folowing sequence as mentioned.
-> ```
+```
 kubectl apply -f namespace.yml
 kubectl apply -f configMap.yml
 kubectl apply -f deployment.yml
 kubectl apply -f service.yml
-> ```
+```
 2. Check the pod is in running state with the command `kubectl get pods -n learner-report-frontend` else wait until it's in running state.
 > _note:- it might take few minutes._
 
@@ -72,9 +72,10 @@ kubectl apply -f service.yml
 > _note:- Everytime the application is run with above step will create different port. For real world scenario we can use step 4 for this._
 
 4. As the service is up and running inside the pod we need to access it through outside world, which can be done with the command `kubectl port-forward service/frontend-service 3000:3000 -n learner-report-frontend`
+![Frontend_Connection](./snapshots/FrontendInBrowser.png)
 
-5. You can check making connection to the DB at 30005 port.
-![Frontend_Connection](./snapshots/FrontendInBrowser.png
+6. You can check making connection to the DB at 30005 port.
+
 
 
 ## References & Links
