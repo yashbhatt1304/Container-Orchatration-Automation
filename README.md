@@ -79,6 +79,21 @@ kubectl apply -f service.yml
 6. You can check making connection to the frontend at 3000 port.
 ![Frontend_Connection](./snapshots/Frontend3000.png)
 
+#### **Preparing helm Chart**
+1. Create a helm package with the command `helm package .`.
+2. Make sure unecessary file are added in **.helmignore** file. You can check your helm package contains the right files with this command `tar -tvf Container-Orchatration-Automation-0.1.0.tgz`.
+![helmPackageDetails](./snapshots/HelmPackageDetails.png)
+3. Now install the generated package with `helm install k8s-orchastration-app Container-Orchatration-Automation-0.1.0.tgz`.
+4. Create a S3 Bucket, make sure it's public accessible and attach the below policy.
+>{"Version":"2012-10-17","Statement":[{"Sid":"PublicReadGetObject","Effect":"Allow","Principal":"*","Action":"s3:GetObject","Resource":"arn:aws:s3:::k8s-orchastration-app/*"}]}
+5. Generate **index.yaml** file using the S3 url with this command `helm repo index . --url https://k8s-orchastration-app.s3.ap-northeast-3.amazonaws.com/`.
+6. Upload the **index.yaml** & **Container-Orchatration-Automation-0.1.0.tgz** files in S3.
+![S3](./snapshots/S3.png)
+7. Open [ArtifactHub Repositories](https://artifacthub.io/control-panel/repositories?page=1) and create new repositorywith name **K8s Orchastration App**.
+![artifactHubRepo](./snapshots/ArtifacthubRepo.png)
+8. Now add the repository with the command `helm repo add k8s-orchastration-app https://k8s-orchastration-app.s3.ap-northeast-3.amazonaws.com/`
+9. You can see the repository is added in your system with the command `helm repo list`.
+
 
 ## References & Links
 
