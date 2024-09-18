@@ -31,9 +31,10 @@ kubectl apply -f service.yml
 3. You can check you mongo is up and running with the command `minikube service db-service -n db-app`. This will launch mongodb and minkube will take care for tunneling.
 > _note:- Everytime the application is run with above step will create different port. For real world scenario we can use step 4 for this._
 
-4. As the service is up and running inside the pod we need to access it through outside world, which can be done with the command `kubectl port-forward service/db-service 30005:27017 -n db-app`
+4. As the service is up and running inside the pod we need to access it through outside world, which can be done with the command `kubectl port-forward service/db-service 27017:27017 -n db-app`
+![MongoDB_Connection](./snapshots/DB27017.png)
 
-5. You can check making connection to the DB at 30005 port.
+5. You can check making connection to the DB at 27017 port.
 ![MongoDB_Connection](./snapshots/MongoDbInCompass.png)
 
 #### **Setting up Backend**
@@ -50,11 +51,12 @@ kubectl apply -f service.yml
 
 3. You can check you backend is up and running with the command `minikube service backend-service -n learner-report-backend`. This will launch backend and minkube will take care for tunneling.
 > _note:- Everytime the application is run with above step will create different port. For real world scenario we can use step 4 for this._
-
-4. As the service is up and running inside the pod we need to access it through outside world, which can be done with the command `kubectl port-forward service/backend-service 3001:3001 -n learner-report-backend`
 ![Backend_Connection](./snapshots/BackendInBrowser.png)
 
+4. As the service is up and running inside the pod we need to access it through outside world, which can be done with the command `kubectl port-forward service/backend-service 3001:3001 -n learner-report-backend`
+
 5. You can check making connection to the backend at 3001 port.
+![Backend_Connection](./snapshots/Backend3001.png)
 
 #### **Setting up Frontend**
 
@@ -70,12 +72,12 @@ kubectl apply -f service.yml
 
 3. You can check you mongo is up and running with the command `minikube service frontend-service -n learner-report-frontend`. This will launch mongodb and minkube will take care for tunneling.
 > _note:- Everytime the application is run with above step will create different port. For real world scenario we can use step 4 for this._
-
-4. As the service is up and running inside the pod we need to access it through outside world, which can be done with the command `kubectl port-forward service/frontend-service 3000:3000 -n learner-report-frontend`
 ![Frontend_Connection](./snapshots/FrontendInBrowser.png)
 
-6. You can check making connection to the DB at 30005 port.
+4. As the service is up and running inside the pod we need to access it through outside world, which can be done with the command `kubectl port-forward service/frontend-service 3000:3000 -n learner-report-frontend`
 
+6. You can check making connection to the frontend at 3000 port.
+![Frontend_Connection](./snapshots/Frontend3000.png)
 
 
 ## References & Links
