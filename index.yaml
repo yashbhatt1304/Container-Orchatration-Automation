@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  Container-Orchatration-Automation:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-09-18T20:46:21.193281+05:30"
+    description: A Helm chart for Kubernetes
+    digest: d0c8e418eb825d03007f94c475304da5240c72f4210fedec8a2db0aa3289fba2
+    name: Container-Orchatration-Automation
+    type: application
+    urls:
+    - https://k8s-orchastration-app.s3.ap-northeast-3.amazonaws.com/Container-Orchatration-Automation-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-09-18T20:46:21.192611+05:30"
