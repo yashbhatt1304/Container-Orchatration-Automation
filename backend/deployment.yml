@@ -2,19 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-deployment
-  namespace: node-backend
+  namespace: learner-report-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend-deployment
+      app: backend
   template:
     metadata:
       labels:
-        app: backend-deployment
+        app: backend
     spec:
       containers:
-      - name: backend-deployment
+      - name: backend
         image: yashbbhatt/container_orch_backend:latest
         env:
         - name: MONGO_URI
@@ -23,10 +23,10 @@ spec:
               name: db-secret
               key: MONGO_URI
         - name: PORT
-          value: "3000"
+          value: "3001"
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 3000
+        - containerPort: 3001
