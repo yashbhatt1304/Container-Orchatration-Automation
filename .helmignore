@@ -21,5 +21,8 @@
 .idea/
 *.tmproj
 .vscode/
-learnerReportCS_backend
-learnerReportCS_frontend
+learnerReportCS_backend/
+learnerReportCS_frontend/
+snapshots/
+*.md
+node_modules/
